@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: params.yaml
+      md5: 8da7791811ee505f054d9283035e5dea
+      size: 282
+    - path: src/pipeline/stage_01_data_ingestion.py
+      md5: df8951bb7c7ddce31949126a27c0c871
+      size: 633
+    params:
+      params.yaml:
+        data_ingestion.local_data_file: artifacts/data_ingestion/data/data.csv
+        data_ingestion.root_dir: artifacts/data_ingestion
+        data_ingestion.source_URL: https://raw.githubusercontent.com/GregaVrbancic/Phishing-Dataset/master/dataset_full.csv
+        data_ingestion.unzip_dir: artifact/data_ingestion
+    outs:
+    - path: artifacts/data_ingestion/data/
+      md5: 3fdb83a6e88e020c4db720e2e716f573.dir
+      size: 25067193
+      nfiles: 1

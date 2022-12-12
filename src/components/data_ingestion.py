@@ -13,7 +13,8 @@ class DataIngestion:
         logger.info("Trying to download file ...")
         
         is_exist = os.path.exists(self.config.local_data_file)
-        
+        print(is_exist)
+         
         if not is_exist:
             logger.info("Started downloading")
             

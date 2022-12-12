@@ -2,7 +2,7 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL:   https://github.com/GregaVrbancic/Phishing-Dataset/blob/master/dataset_full.csv
-  local_data_file: artifacts/data_ingestion/data.csv
+  source_URL:   https://raw.githubusercontent.com/GregaVrbancic/Phishing-Dataset/master/dataset_full.csv
+  local_data_file: artifacts/data_ingestion/data/data.csv
   unzip_dir: artifact/data_ingestion
   
