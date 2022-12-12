@@ -25,6 +25,6 @@ class DataIngestion:
             logger.info(f"{filename} downloaded with following info {headers}")
             
         else:
-            logger.info(f"File already exist of size {get_size(Path(self.config.localocal_data_filel_data_dir))}")
+            logger.info(f"File already exist of size {get_size(Path(self.config.local_data_file))}")
         
     
