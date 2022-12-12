@@ -2,7 +2,7 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL:   https://data.mendeley.com/public-files/datasets/72ptz43s9v/files/26197eb8-15bc-4e06-a269-aa10ddc286f0/file_downloaded
-  local_data_dir: artifacts/data_ingestion/data.zip
+  source_URL:   https://github.com/GregaVrbancic/Phishing-Dataset/blob/master/dataset_full.csv
+  local_data_file: artifacts/data_ingestion/data.csv
   unzip_dir: artifact/data_ingestion
   
