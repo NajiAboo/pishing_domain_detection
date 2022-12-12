@@ -16,7 +16,9 @@ class ConfigurationManager:
             root_dir= config.root_dir,
             source_URL= config.source_URL, 
             local_data_file= config.local_data_file, 
-            unzip_dir= config.unzip_dir
+            unzip_dir= config.unzip_dir,
+            ingected_test_dir=config.ingected_test_dir,
+            ingected_train_dir=config.ingected_train_dir
         )
         
         return data_ingestion_config

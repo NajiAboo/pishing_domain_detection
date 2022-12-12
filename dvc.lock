@@ -4,8 +4,8 @@ stages:
     cmd: python src/pipeline/stage_01_data_ingestion.py
     deps:
     - path: params.yaml
-      md5: 8da7791811ee505f054d9283035e5dea
-      size: 282
+      md5: aa6ddf8af38814656e0d6795bab6cf31
+      size: 438
     - path: src/pipeline/stage_01_data_ingestion.py
       md5: df8951bb7c7ddce31949126a27c0c871
       size: 633

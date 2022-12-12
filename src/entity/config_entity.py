@@ -7,3 +7,5 @@ class DataIngestionConfig:
     source_URL: str
     local_data_file: Path
     unzip_dir: Path
+    ingected_train_dir: Path
+    ingected_test_dir: Path
