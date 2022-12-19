@@ -4,19 +4,50 @@ stages:
     cmd: python src/pipeline/stage_01_data_ingestion.py
     deps:
     - path: params.yaml
-      md5: aa6ddf8af38814656e0d6795bab6cf31
-      size: 438
+      md5: 98874dda75f697c66b41d381eec346a4
+      size: 692
     - path: src/pipeline/stage_01_data_ingestion.py
-      md5: df8951bb7c7ddce31949126a27c0c871
-      size: 633
+      md5: bc57183d7d3289433346b4466b58c9ea
+      size: 646
     params:
       params.yaml:
         data_ingestion.local_data_file: artifacts/data_ingestion/data/data.csv
         data_ingestion.root_dir: artifacts/data_ingestion
         data_ingestion.source_URL: https://raw.githubusercontent.com/GregaVrbancic/Phishing-Dataset/master/dataset_full.csv
-        data_ingestion.unzip_dir: artifact/data_ingestion
+        data_ingestion.unzip_dir: artifacts/data_ingestion
     outs:
     - path: artifacts/data_ingestion/data/
       md5: 3fdb83a6e88e020c4db720e2e716f573.dir
       size: 25067193
       nfiles: 1
+    - path: artifacts/data_ingestion/ingected_data/ingected_test_dir
+      md5: 5e801364c800f964e7767065302663d7.dir
+      size: 5010480
+      nfiles: 1
+    - path: artifacts/data_ingestion/ingected_data/ingected_train_dir
+      md5: 88d3e5e91520eee7fb9662f18a45b431.dir
+      size: 20035229
+      nfiles: 1
+  data_validation:
+    cmd: python src/pipeline/stage_02_data_validation.py
+    deps:
+    - path: params.yaml
+      md5: 98874dda75f697c66b41d381eec346a4
+      size: 692
+    - path: src/components/data_validation.py
+      md5: b69e66194aec698b6b23db562a5aa164
+      size: 5631
+    - path: src/pipeline/stage_02_data_validation.py
+      md5: c1ff7e64b1d7065640fb058da503c46c
+      size: 759
+    params:
+      params.yaml:
+        data_validation.report_file_path: artifacts/data_validation/report.json
+        data_validation.report_page_file_path: artifacts/data_validation/report.html
+        data_validation.root_dir: artifacts/data_validation
+        data_validation.schema_path_file: config/schema.yaml
+    outs:
+    - path: artifacts/data_validation/
+      md5: 316962358a81bfa3262b78405a80c3df.dir
+      size: 57950000
+      nfiles: 2

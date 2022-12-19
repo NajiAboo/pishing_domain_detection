@@ -4,7 +4,16 @@ data_ingestion:
   root_dir: artifacts/data_ingestion
   source_URL:   https://raw.githubusercontent.com/GregaVrbancic/Phishing-Dataset/master/dataset_full.csv
   local_data_file: artifacts/data_ingestion/data/data.csv
-  unzip_dir: artifact/data_ingestion
-  ingected_train_dir: artifact/data_ingestion/ingected_data/ingected_train_dir
-  ingected_test_dir: artifact/data_ingestion/ingected_data/ingected_test_dir
+  unzip_dir: artifacts/data_ingestion
+  ingected_train_file_path: artifacts/data_ingestion/ingected_data/ingected_train_dir/data.csv
+  ingected_test_file_path: artifacts/data_ingestion/ingected_data/ingected_test_dir/data.csv
+
+data_validation:
+  root_dir: artifacts/data_validation
+  schema_path_file: config/schema.yaml
+  report_file_path: artifacts/data_validation/report.json
+  report_page_file_path: artifacts/data_validation/report.html
+
+  
+
   

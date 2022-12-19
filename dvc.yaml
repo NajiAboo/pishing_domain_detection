@@ -11,3 +11,19 @@ stages:
                 - data_ingestion.unzip_dir
             outs:
                 - artifacts/data_ingestion/data/
+                - artifacts/data_ingestion/ingected_data/ingected_test_dir
+                - artifacts/data_ingestion/ingected_data/ingected_train_dir
+
+    data_validation:
+        cmd: python src/pipeline/stage_02_data_validation.py
+        deps:
+            - src/pipeline/stage_02_data_validation.py
+            - src/components/data_validation.py
+            - params.yaml
+        params:
+            - data_validation.root_dir
+            - data_validation.schema_path_file
+            - data_validation.report_file_path
+            - data_validation.report_page_file_path
+        outs:
+            - artifacts/data_validation/            
