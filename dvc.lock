@@ -4,8 +4,8 @@ stages:
     cmd: python src/pipeline/stage_01_data_ingestion.py
     deps:
     - path: params.yaml
-      md5: b3d6fcd4d4bab06676ef3398eda94ae5
-      size: 956
+      md5: 4cfa1f6904004bb95e43b9b5e4a6a18f
+      size: 1007
     - path: src/pipeline/stage_01_data_ingestion.py
       md5: bc57183d7d3289433346b4466b58c9ea
       size: 646
@@ -21,19 +21,19 @@ stages:
       size: 25067193
       nfiles: 1
     - path: artifacts/data_ingestion/ingected_data/ingected_test_dir
-      md5: e8b64a35b3690f377e4aa7076b9ba7ab.dir
-      size: 5010599
+      md5: eb26f17832ecc7565d6a93d54129bd4c.dir
+      size: 5008202
       nfiles: 1
     - path: artifacts/data_ingestion/ingected_data/ingected_train_dir
-      md5: 011825c2935da65fb9f73a4cec8bc1e4.dir
-      size: 20035110
+      md5: e5539b3c8987a22b666b4b63fe9c424f.dir
+      size: 20037507
       nfiles: 1
   data_validation:
     cmd: python src/pipeline/stage_02_data_validation.py
     deps:
     - path: params.yaml
-      md5: b3d6fcd4d4bab06676ef3398eda94ae5
-      size: 956
+      md5: 4cfa1f6904004bb95e43b9b5e4a6a18f
+      size: 1007
     - path: src/components/data_validation.py
       md5: b69e66194aec698b6b23db562a5aa164
       size: 5631
@@ -48,23 +48,24 @@ stages:
         data_validation.schema_path_file: config/schema.yaml
     outs:
     - path: artifacts/data_validation/
-      md5: 26fbdf9bc6cae36b01530ef3a75aff93.dir
-      size: 57949026
+      md5: 45278694a48a5db5de04672843820ea0.dir
+      size: 57949790
       nfiles: 2
   data_preprocessing:
     cmd: python src/pipeline/stage_03_data_preprocessing.py
     deps:
     - path: params.yaml
-      md5: b3d6fcd4d4bab06676ef3398eda94ae5
-      size: 956
+      md5: 4cfa1f6904004bb95e43b9b5e4a6a18f
+      size: 1007
     - path: src/components/data_preprocessing.py
-      md5: 7978a72597a702e0c35ea8dda7e511ec
-      size: 3178
+      md5: ce987bc5e5fe1f518aa0d2be54bca4aa
+      size: 3397
     - path: src/pipeline/stage_03_data_preprocessing.py
       md5: d2b41d338a98855cb8a5173a5665f37e
       size: 900
     params:
       params.yaml:
+        data_preprocessing.cluster_model_path: models/kmean/kmean_model.pkl
         data_preprocessing.cluster_number_path: artifacts/data_preprocessing/cluster_number.json
         data_preprocessing.elbow_file_path: artifacts/data_preprocessing/kmeans_elbow.png
         data_preprocessing.root_dir: artifacts/data_preprocessing

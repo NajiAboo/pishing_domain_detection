@@ -3,7 +3,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.cluster  import KMeans
 from kneed import KneeLocator
-from src.util.common import save_json
+from src.util.common import save_json, save_model
 from src.config.configuration import DataIngestionConfig, DataPreprcessingConfig
 
 class DataPreprocessing:
@@ -47,16 +47,21 @@ class DataPreprocessing:
         save_json(self.data_preprocessing_config.cluster_number_path, data)
     
     
-    def __get_cluster_of_each_data(self, X: pd.DataFrame, number_cluster: int) -> pd.DataFrame:
+    def __get_cluster_of_each_data(self, X: pd.DataFrame, number_cluster: int) -> tuple([pd.DataFrame,KMeans]) :
         kmean = KMeans(n_clusters=number_cluster, init="k-means++", random_state=42)
         y_mean = kmean.fit_predict(X)
         X["cluster"] = y_mean
-        return X
+        return X, kmean
+    
+    def __save_model(self, kmeans: KMeans):
+       save_model(kmeans, self.data_preprocessing_config.cluster_model_path)
+       pass
         
     def __divide_and_save_cluster(self,X: pd.DataFrame, y: pd.Series, number_cluster: int) -> None:
-        X_modified = self.__get_cluster_of_each_data(X, number_cluster=number_cluster)
+        X_modified, kmean = self.__get_cluster_of_each_data(X, number_cluster=number_cluster)
         X_modified["label"] = y
-        X_modified.to_csv(self.data_preprocessing_config.clustered_data)        
+        X_modified.to_csv(self.data_preprocessing_config.clustered_data)      
+        self.__save_model(kmeans=kmean)
         
         
     

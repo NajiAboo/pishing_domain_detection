@@ -37,5 +37,6 @@ stages:
             - data_preprocessing.root_dir
             - data_preprocessing.elbow_file_path
             - data_preprocessing.cluster_number_path
+            - data_preprocessing.cluster_model_path
         outs:
             - artifacts/data_preprocessing

@@ -23,4 +23,5 @@ class DataPreprcessingConfig:
     elbow_file_path: Path
     cluster_number_path: Path
     clustered_data: Path
+    cluster_model_path: Path
     

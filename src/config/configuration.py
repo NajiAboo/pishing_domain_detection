@@ -51,14 +51,16 @@ class ConfigurationManager:
         create_directories([config.root_dir, 
                             os.path.dirname(config.elbow_file_path),
                             os.path.dirname(config.cluster_number_path),
-                            os.path.dirname(config.clustered_data)
+                            os.path.dirname(config.clustered_data),
+                            os.path.dirname(config.cluster_model_path)
                           ])
         
         data_preprocessing_config = DataPreprcessingConfig(
             root_dir= config.root_dir,
             elbow_file_path=config.elbow_file_path,
             cluster_number_path= Path(config.cluster_number_path),
-            clustered_data= Path(config.clustered_data)
+            clustered_data= Path(config.clustered_data),
+            cluster_model_path=Path(config.cluster_model_path)
         )
         
         return data_preprocessing_config

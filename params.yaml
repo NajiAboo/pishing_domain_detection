@@ -19,6 +19,7 @@ data_preprocessing:
   elbow_file_path: artifacts/data_preprocessing/kmeans_elbow.png
   cluster_number_path: artifacts/data_preprocessing/cluster_number.json
   clustered_data: artifacts/data_preprocessing/cluster_data.csv
+  cluster_model_path: models/kmean/kmean_model.pkl
 
 
   
