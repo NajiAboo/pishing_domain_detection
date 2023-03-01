@@ -4,4 +4,5 @@ python-box==6.0.2
 dvc
 scikit-learn
 evidently
+kneed
 -e .

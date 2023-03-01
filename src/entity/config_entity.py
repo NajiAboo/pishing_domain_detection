@@ -16,3 +16,11 @@ class DataValidationConfig:
     schema_path_file: Path
     report_file_path: Path
     report_page_file_path: Path
+
+@dataclass(frozen=True)
+class DataPreprcessingConfig:
+    root_dir: Path
+    elbow_file_path: Path
+    cluster_number_path: Path
+    clustered_data: Path
+    

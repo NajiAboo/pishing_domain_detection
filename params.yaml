@@ -14,6 +14,13 @@ data_validation:
   report_file_path: artifacts/data_validation/report.json
   report_page_file_path: artifacts/data_validation/report.html
 
+data_preprocessing:
+  root_dir: artifacts/data_preprocessing
+  elbow_file_path: artifacts/data_preprocessing/kmeans_elbow.png
+  cluster_number_path: artifacts/data_preprocessing/cluster_number.json
+  clustered_data: artifacts/data_preprocessing/cluster_data.csv
+
+
   
 
   

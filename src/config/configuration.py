@@ -1,5 +1,6 @@
+from pathlib import Path
 from src.util import read_yaml, create_directories
-from src.entity import DataIngestionConfig, DataValidationConfig
+from src.entity import DataIngestionConfig, DataValidationConfig,DataPreprcessingConfig
 from src.constants import PARAMS_FILE_PATH
 import os
 
@@ -43,3 +44,21 @@ class ConfigurationManager:
         )
         
         return data_valiation_config
+    
+    def get_data_preprocessing_configuration(self) -> DataPreprcessingConfig:
+        config = self.params.data_preprocessing
+        
+        create_directories([config.root_dir, 
+                            os.path.dirname(config.elbow_file_path),
+                            os.path.dirname(config.cluster_number_path),
+                            os.path.dirname(config.clustered_data)
+                          ])
+        
+        data_preprocessing_config = DataPreprcessingConfig(
+            root_dir= config.root_dir,
+            elbow_file_path=config.elbow_file_path,
+            cluster_number_path= Path(config.cluster_number_path),
+            clustered_data= Path(config.clustered_data)
+        )
+        
+        return data_preprocessing_config

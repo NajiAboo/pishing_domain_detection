@@ -26,4 +26,16 @@ stages:
             - data_validation.report_file_path
             - data_validation.report_page_file_path
         outs:
-            - artifacts/data_validation/            
+            - artifacts/data_validation/  
+    data_preprocessing:
+        cmd: python src/pipeline/stage_03_data_preprocessing.py
+        deps:
+            - src/pipeline/stage_03_data_preprocessing.py
+            - src/components/data_preprocessing.py
+            - params.yaml
+        params:
+            - data_preprocessing.root_dir
+            - data_preprocessing.elbow_file_path
+            - data_preprocessing.cluster_number_path
+        outs:
+            - artifacts/data_preprocessing
